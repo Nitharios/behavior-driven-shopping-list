@@ -5,19 +5,20 @@ let item;
 
 beforeEach(function() {
   item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+  list = new ShoppingList();
 });
 
-describe('itemItem', function() {
+describe('ShoppingListItem', function() {
   it('should be a function', function() {
     expect(ShoppingListItem).to.be.a('function'); 
   });
-  it('should have a property "name"', function() {
+  it('should have property "name"', function() {
     expect(item).to.have.property('name'); 
   });
-  it('should have a property "description"', function() {
+  it('should have property "description"', function() {
     expect(item).to.have.property('description'); 
   });
-  it('should have a property "is_done"', function() {
+  it('should have property "is_done"', function() {
     expect(item).to.have.property('is_done'); 
   });
   it('should have a constructor method', function() {
@@ -25,7 +26,7 @@ describe('itemItem', function() {
   });
 });
 
-describe('check', function() {
+describe('check method', function() {
   it('should be a method', function() {
     expect(item.check).to.be.a('function');
   });
@@ -34,7 +35,7 @@ describe('check', function() {
   });
 });
 
-describe('uncheck', function() {
+describe('uncheck method', function() {
   it('should be a method', function() {
     expect(item.uncheck).to.be.a('function');
   });
@@ -43,7 +44,7 @@ describe('uncheck', function() {
   });
 });
 
-describe('render', function() {
+describe('render method', function() {
   it('should be a method', function() {
     expect(item.render).to.be.a('function');
   });
@@ -54,5 +55,17 @@ describe('render', function() {
     expect(item.render()).to.include('false');
     expect(item.render()).to.include('Avocado');
     expect(item.render()).to.include('Must be eaten immediately');
+  });
+});
+
+describe('ShoppingList', function() {
+  it('should be a class', function() {
+    expect(ShoppingList).to.be.a('function');
+  });
+  it('should have property "items"', function() {
+    expect(list).to.have.property('items');
+  });
+  it('"items" should be an empty array', function() {
+    expect(list.items).to.be.an('array').and.empty;
   });
 });
