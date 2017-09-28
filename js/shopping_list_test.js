@@ -4,7 +4,7 @@ const should = chai.should();
 let shoppingList;
 
 beforeEach(function() {
-  shoppingList = new ShoppingListItem('Food', 'stuff');
+  shoppingList = new ShoppingListItem('Avocado', 'Must be eaten immediately');
 });
 
 describe('shoppingListItem', function() {
@@ -49,6 +49,10 @@ describe('render', function() {
   });
   it('should return a string', function() {
     expect(shoppingList.render()).to.be.a('string');
-    console.log(shoppingList.render());
+  });
+  it('should use the correct references', function() {
+    expect(shoppingList.render()).to.include('false');
+    expect(shoppingList.render()).to.include('Avocado');
+    expect(shoppingList.render()).to.include('Must be eaten immediately');
   });
 });
