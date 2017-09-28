@@ -18,6 +18,9 @@ class ShoppingListItem {
   }
 
   render() {
+    let checkboxValue = document.getElementById('').value;
+    checkboxValue.addEventListener("onchange", changeCheckedStatus(idx, checkbox));
+
     return `<li class='completed_${this.is_done}'><span>${this.name}</span> <span>${this.description}</span></li>`;
   }
 }
