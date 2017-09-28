@@ -22,13 +22,11 @@ describe('ShoppingListItem', function() {
   it('should have a constructor method', function() {
     expect(item).to.be.an.instanceof(ShoppingListItem);
   });
-});
-
 describe('check method', function() {
   before(function() {
     item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
   });
-  it('should be a method', function() {
+  it('should have a method "check"', function() {
     expect(item.check).to.be.a('function');
   });
   it('should set is_done to true', function() {
@@ -36,32 +34,33 @@ describe('check method', function() {
   });
 });
 
-describe('uncheck method', function() {
-  before(function() {
-    item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+  describe('uncheck method', function() {
+    before(function() {
+      item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+    });
+    it('should have a method "uncheck"', function() {
+      expect(item.uncheck).to.be.a('function');
+    });
+    it('should set is_done to false', function() {
+      expect(item.uncheck()).to.be.false;
+    });
   });
-  it('should be a method', function() {
-    expect(item.uncheck).to.be.a('function');
-  });
-  it('should set is_done to false', function() {
-    expect(item.uncheck()).to.be.false;
-  });
-});
 
-describe('render method', function() {
-  before(function() {
-    item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
-  });
-  it('should be a method', function() {
-    expect(item.render).to.be.a('function');
-  });
-  it('should return a string', function() {
-    expect(item.render()).to.be.a('string');
-  });
-  it('should use the correct references', function() {
-    expect(item.render()).to.include('false');
-    expect(item.render()).to.include('Avocado');
-    expect(item.render()).to.include('Must be eaten immediately');
+  describe('render method', function() {
+    before(function() {
+      item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+    });
+    it('should be a method "render"', function() {
+      expect(item.render).to.be.a('function');
+    });
+    it('should return a string', function() {
+      expect(item.render()).to.be.a('string');
+    });
+    it('should use the correct references', function() {
+      expect(item.render()).to.include('false');
+      expect(item.render()).to.include('Avocado');
+      expect(item.render()).to.include('Must be eaten immediately');
+    });
   });
 });
 
@@ -78,5 +77,7 @@ describe('ShoppingList', function() {
   it('"items" should be an empty array', function() {
     expect(list.items).to.be.an('array').and.empty;
   });
+
+
 });
 
