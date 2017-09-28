@@ -142,7 +142,7 @@ describe('ShoppingList', function() {
       });
       it('should use the correct references', function() {
         expect(list.render()).to.include(bacon.render());
-        expect(list.render()).to.include(bacon.render());
+        expect(list.render()).to.include(eggs.render());
       });
     });
 });
