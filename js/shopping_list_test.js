@@ -78,6 +78,22 @@ describe('ShoppingList', function() {
     expect(list.items).to.be.an('array').and.empty;
   });
 
+    describe('addItem()', function() {
+      before(function() {
+        list = new ShoppingList();
+        bacon = new ShoppingListItem('Bacon', 'Always delicious');
+      });
+      it('should have a method "addItem"', function() {
+        expect(list.addItem).to.be.a('function');
+      });
+      it('should add valid items to your shopping cart', function() {
+        list.addItem(bacon);
+        expect(list.items).to.include(bacon);
+        expect(list.addItem('Lettuce')).to.be.a('string');
+        expect(list.addItem(null)).to.be.a('string');
+      });
+    });
+
     describe('removeItem()', function() {
       before(function() {
         list = new ShoppingList();
@@ -95,6 +111,7 @@ describe('ShoppingList', function() {
         list.removeItem();
         expect(list.items).to.be.empty;
         expect(list.removeItem('Lettuce')).to.be.a('string');
+        expect(list.removeItem(null)).to.be.a('string');
       });
     });
 
