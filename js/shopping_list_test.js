@@ -137,7 +137,7 @@ describe('ShoppingList', function() {
         expect(list.render()).to.include('<ul>');
         expect(list.render()).to.include('</ul>');
       });
-      it('should use the correct references,', function() {
+      it('should use the correct references', function() {
         expect(list.render()).to.include(bacon.render());
         expect(list.render()).to.include(bacon.render());
       });
