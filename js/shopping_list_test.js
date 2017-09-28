@@ -11,13 +11,16 @@ describe('ShoppingListItem', function() {
     expect(ShoppingListItem).to.be.a('function'); 
   });
   it('should have property "name"', function() {
-    expect(item).to.have.property('name'); 
+    expect(item).to.have.property('name');
+    expect(item.name).to.be('Avocado');
   });
   it('should have property "description"', function() {
-    expect(item).to.have.property('description'); 
+    expect(item).to.have.property('description');
+    expect(item.name).to.be('Must be eaten immediately'); 
   });
   it('should have property "is_done"', function() {
     expect(item).to.have.property('is_done'); 
+    expect(item.is_done).to.be.false;
   });
   it('should have a constructor method', function() {
     expect(item).to.be.an.instanceof(ShoppingListItem);

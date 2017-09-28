@@ -1,5 +1,5 @@
 // jshint esversion:6
-const sanity = "You're sane!";
+const sanity = "You're not crazy!";
 console.log(sanity);
 
 const content = document.getElementById("content");
