@@ -22,7 +22,7 @@ describe('ShoppingListItem', function() {
   it('should have a constructor method', function() {
     expect(item).to.be.an.instanceof(ShoppingListItem);
   });
-describe('check method', function() {
+describe('check()', function() {
   before(function() {
     item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
   });
@@ -34,7 +34,7 @@ describe('check method', function() {
   });
 });
 
-  describe('uncheck method', function() {
+  describe('uncheck()', function() {
     before(function() {
       item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
     });
@@ -46,7 +46,7 @@ describe('check method', function() {
     });
   });
 
-  describe('render method', function() {
+  describe('render()', function() {
     before(function() {
       item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
     });
@@ -78,42 +78,43 @@ describe('ShoppingList', function() {
     expect(list.items).to.be.an('array').and.empty;
   });
 
-  describe('addItem', function() {
-    before(function() {
-      list = new ShoppingList();
-      item = new ShoppingListItem('Bacon', 'Always delicious');
+    describe('removeItem()', function() {
+      before(function() {
+        list = new ShoppingList();
+        bacon = new ShoppingListItem('Bacon', 'Always delicious');
+        eggs = new ShoppingListItem('Eggs', 'Goes great with Bacon');
+        list.addItem(bacon);
+        list.addItem(eggs);
+      });
+      it('should have a method "removeItem"', function() {
+        expect(list.removeItem).to.be.a('function');
+      });
+      it('should remove items that are in your shopping cart', function() {
+        list.removeItem(bacon);
+        expect(list.items).to.not.include(bacon);
+        list.removeItem();
+        expect(list.items).to.be.empty;
+        expect(list.removeItem('Lettuce')).to.be.a('string');
+      });
     });
-    it('should have a method "addItem"', function() {
-      expect(list.addItem).to.be.a('function');
-    });
-    it('should add items that are on your shopping list', function() {
-      list.addItem(item);
-      expect(list.items).to.include(item);
-      list.addItem('Broken Glass');
-      expect(list.items).to.not.include('Broken Glass');
-    });
-  });
 
-  describe('removeItem', function() {
-    before(function() {
+    describe('render()', function() {
+      before (function() {
       list = new ShoppingList();
       bacon = new ShoppingListItem('Bacon', 'Always delicious');
-      cheese = new ShoppingListItem('Cheese', 'Goes great with Bacon');
+      eggs = new ShoppingListItem('Eggs', 'Goes great with bacon');
       list.addItem(bacon);
-      list.addItem(cheese);
+      list.addItem(eggs);
     });
-    it('should have a method "removeItem"', function() {
-      expect(list.removeItem).to.be.a('function');
+      it('should have a method "render"', function() {
+        expect(list.render).to.be.a('function');
+      });
+      it('should return a string', function() {
+        expect(list.render()).to.be.a('string');
+      });
+      it('should use the correct references', function() {
+        expect(list.render()).to.not.be.undefined;
+      });
     });
-    it('should remove items that are in your shopping cart', function() {
-      list.removeItem(bacon);
-      expect(list.items).to.not.include(bacon);
-      expect(list.removeItem('Lettuce')).to.be.a('string');
-    });
-  });
-
-  describe('render', function() {
-
-  });
 });
 
