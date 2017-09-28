@@ -1,58 +1,58 @@
 // jshint esversion:6
 const expect = chai.expect;
 const should = chai.should();
-let shoppingList;
+let item;
 
 beforeEach(function() {
-  shoppingList = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+  item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
 });
 
-describe('shoppingListItem', function() {
+describe('itemItem', function() {
   it('should be a function', function() {
     expect(ShoppingListItem).to.be.a('function'); 
   });
   it('should have a property "name"', function() {
-    expect(shoppingList).to.have.property('name'); 
+    expect(item).to.have.property('name'); 
   });
   it('should have a property "description"', function() {
-    expect(shoppingList).to.have.property('description'); 
+    expect(item).to.have.property('description'); 
   });
   it('should have a property "is_done"', function() {
-    expect(shoppingList).to.have.property('is_done'); 
+    expect(item).to.have.property('is_done'); 
   });
   it('should have a constructor method', function() {
-    expect(shoppingList).to.be.an.instanceof(ShoppingListItem);
+    expect(item).to.be.an.instanceof(ShoppingListItem);
   });
 });
 
 describe('check', function() {
   it('should be a method', function() {
-    expect(shoppingList.check).to.be.a('function');
+    expect(item.check).to.be.a('function');
   });
   it('should set is_done to true', function() {
-    expect(shoppingList.check()).to.be.true;
+    expect(item.check()).to.be.true;
   });
 });
 
 describe('uncheck', function() {
   it('should be a method', function() {
-    expect(shoppingList.uncheck).to.be.a('function');
+    expect(item.uncheck).to.be.a('function');
   });
   it('should set is_done to false', function() {
-    expect(shoppingList.uncheck()).to.be.false;
+    expect(item.uncheck()).to.be.false;
   });
 });
 
 describe('render', function() {
   it('should be a method', function() {
-    expect(shoppingList.render).to.be.a('function');
+    expect(item.render).to.be.a('function');
   });
   it('should return a string', function() {
-    expect(shoppingList.render()).to.be.a('string');
+    expect(item.render()).to.be.a('string');
   });
   it('should use the correct references', function() {
-    expect(shoppingList.render()).to.include('false');
-    expect(shoppingList.render()).to.include('Avocado');
-    expect(shoppingList.render()).to.include('Must be eaten immediately');
+    expect(item.render()).to.include('false');
+    expect(item.render()).to.include('Avocado');
+    expect(item.render()).to.include('Must be eaten immediately');
   });
 });
