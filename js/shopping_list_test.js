@@ -80,19 +80,35 @@ describe('ShoppingList', function() {
 
   describe('addItem', function() {
     before(function() {
-      item = new ShoppingListItem('Bacon', 'Always delicious');
       list = new ShoppingList();
+      item = new ShoppingListItem('Bacon', 'Always delicious');
     });
     it('should have a method "addItem"', function() {
       expect(list.addItem).to.be.a('function');
     });
-    it('should add items to the shopping list', function() {
+    it('should add items that are on your shopping list', function() {
       list.addItem(item);
       expect(list.items).to.include(item);
-    });
-    it('should not add invalid items', function() {
       list.addItem('Broken Glass');
       expect(list.items).to.not.include('Broken Glass');
+    });
+  });
+
+  describe('removeItem', function() {
+    before(function() {
+      list = new ShoppingList();
+      bacon = new ShoppingListItem('Bacon', 'Always delicious');
+      cheese = new ShoppingListItem('Cheese', 'Goes great with Bacon');
+      list.addItem(bacon);
+      list.addItem(cheese);
+    });
+    it('should have a method "removeItem"', function() {
+      expect(list.removeItem).to.be.a('function');
+    });
+    it('should remove items that are in your shopping cart', function() {
+      list.removeItem(bacon);
+      expect(list.items).to.not.include(bacon);
+      expect(list.removeItem('Lettuce')).to.be.a('string');
     });
   });
 });
