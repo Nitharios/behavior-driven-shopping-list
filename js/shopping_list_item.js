@@ -11,4 +11,13 @@ class ShoppingListItem {
     this.is_done = true;
     return this.is_done;
   }
+
+  uncheck() {
+    this.is_done = false;
+    return this.is_done;
+  }
+
+  render() {
+    
+  }
 }

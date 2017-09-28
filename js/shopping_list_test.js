@@ -33,3 +33,18 @@ describe('check', function() {
     expect(shoppingList.check()).to.be.true;
   });
 });
+
+describe('uncheck', function() {
+  it('should be a method', function() {
+    expect(shoppingList.uncheck).to.be.a('function');
+  });
+  it('should set is_done to false', function() {
+    expect(shoppingList.uncheck()).to.be.false;
+  });
+});
+
+describe('render', function() {
+  it('should be a method', function() {
+    expect(shoppingList.render).to.be.a('function');
+  });
+});
