@@ -47,4 +47,8 @@ describe('render', function() {
   it('should be a method', function() {
     expect(shoppingList.render).to.be.a('function');
   });
+  it('should return a string', function() {
+    expect(shoppingList.render()).to.be.a('string');
+    console.log(shoppingList.render());
+  });
 });
