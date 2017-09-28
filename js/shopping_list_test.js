@@ -50,7 +50,7 @@ describe('check method', function() {
     before(function() {
       item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
     });
-    it('should be a method "render"', function() {
+    it('should have a method "render"', function() {
       expect(item.render).to.be.a('function');
     });
     it('should return a string', function() {
@@ -78,6 +78,22 @@ describe('ShoppingList', function() {
     expect(list.items).to.be.an('array').and.empty;
   });
 
-
+  describe('addItem', function() {
+    before(function() {
+      item = new ShoppingListItem('Bacon', 'Always delicious');
+      list = new ShoppingList();
+    });
+    it('should have a method "addItem"', function() {
+      expect(list.addItem).to.be.a('function');
+    });
+    it('should add items to the shopping list', function() {
+      list.addItem(item);
+      expect(list.items).to.include(item);
+    });
+    it('should not add invalid items', function() {
+      list.addItem('Broken Glass');
+      expect(list.items).to.not.include('Broken Glass');
+    });
+  });
 });
 
