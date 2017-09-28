@@ -11,9 +11,12 @@ class ShoppingList {
   }
 
   removeItem(item) {
-    if (this.items.includes(item)) {
-      let itemIndex = this.items.indexOf(item);
-      this.items.splice(itemIndex, 1);
+    let items = this.items;
+    
+    if (items.includes(item)) {
+      let itemIndex = items.indexOf(item);
+      items.splice(itemIndex, 1);
+    } else if (!item) { items.splice(items.length-1, 1);
     } else return 'Invalid!';
   }
 }

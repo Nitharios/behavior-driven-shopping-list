@@ -111,5 +111,9 @@ describe('ShoppingList', function() {
       expect(list.removeItem('Lettuce')).to.be.a('string');
     });
   });
+
+  describe('render', function() {
+
+  });
 });
 
