@@ -56,6 +56,10 @@ describe('check()', function() {
     it('should return a string', function() {
       expect(item.render()).to.be.a('string');
     });
+    it('should use the correct tags', function() {
+      expect(item.render()).to.include('<li');
+      expect(item.render()).to.include('</li>');
+    });
     it('should use the correct references', function() {
       expect(item.render()).to.include('false');
       expect(item.render()).to.include('Avocado');
@@ -129,8 +133,13 @@ describe('ShoppingList', function() {
       it('should return a string', function() {
         expect(list.render()).to.be.a('string');
       });
-      it('should use the correct references', function() {
-        expect(list.render()).to.not.be.undefined;
+      it('should use the correct tags', function() {
+        expect(list.render()).to.include('<ul>');
+        expect(list.render()).to.include('</ul>');
+      });
+      it('should use the correct references,', function() {
+        expect(list.render()).to.include(bacon.render());
+        expect(list.render()).to.include(bacon.render());
       });
     });
 });
