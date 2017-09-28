@@ -3,12 +3,10 @@ const expect = chai.expect;
 const should = chai.should();
 let item;
 
-beforeEach(function() {
-  item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
-  list = new ShoppingList();
-});
-
 describe('ShoppingListItem', function() {
+  before(function() {
+    item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+  });
   it('should be a function', function() {
     expect(ShoppingListItem).to.be.a('function'); 
   });
@@ -27,6 +25,9 @@ describe('ShoppingListItem', function() {
 });
 
 describe('check method', function() {
+  before(function() {
+    item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+  });
   it('should be a method', function() {
     expect(item.check).to.be.a('function');
   });
@@ -36,6 +37,9 @@ describe('check method', function() {
 });
 
 describe('uncheck method', function() {
+  before(function() {
+    item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+  });
   it('should be a method', function() {
     expect(item.uncheck).to.be.a('function');
   });
@@ -45,6 +49,9 @@ describe('uncheck method', function() {
 });
 
 describe('render method', function() {
+  before(function() {
+    item = new ShoppingListItem('Avocado', 'Must be eaten immediately');
+  });
   it('should be a method', function() {
     expect(item.render).to.be.a('function');
   });
@@ -59,6 +66,9 @@ describe('render method', function() {
 });
 
 describe('ShoppingList', function() {
+  before(function() {
+    list = new ShoppingList();
+  });
   it('should be a class', function() {
     expect(ShoppingList).to.be.a('function');
   });
@@ -69,3 +79,4 @@ describe('ShoppingList', function() {
     expect(list.items).to.be.an('array').and.empty;
   });
 });
+
