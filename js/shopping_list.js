@@ -21,13 +21,15 @@ class ShoppingList {
   }
 
   render() {
+    let list = document.createElement('ul');
     let items = this.items;
-    let finalItemsRender = "";
-    
+
     for (let i = 0; i < items.length; i++) {
-      finalItemsRender += items[i].render();
+      console.log(items[i]);
+      console.log(list);
+      list.appendChild(items[i].render());
     }
-    console.log(finalItemsRender);
-    return `<ul>${finalItemsRender}</ul>`;
+
+    return list;
   }
 }

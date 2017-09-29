@@ -18,10 +18,15 @@ class ShoppingListItem {
   }
 
   render() {
-    // let item = document.createElement('input');
-    // item.type = "checkbox";
-    // item.value = `${this.name}` + ' ' + `${this.description}`;
-    // item.addEventListener("onchange", changeCheckedStatus(idx, item));
+    let item = `{${this.name}, ${this.description}}`;
+    let checkbox = document.createElement('input');
+    checkbox.type = "checkbox";
+    checkbox.value = `${this.name}`;
+    checkbox.innerHTML = `${this.name}` + ' ' + `${this.description}`;
+    checkbox.addEventListener("onchange", function() {
+      changeCheckedStatus(shoppingList.items.indexOf(item), checkbox);
+    });
+    return checkbox;
 
     // let checkboxValue = document.getElementsByClassName("").value;
     // checkboxValue.addEventListener("onchange", changeCheckedStatus(idx, checkbox));
@@ -29,6 +34,6 @@ class ShoppingListItem {
     // button.value = 'x';
     // button.addEventListener("click", removeItemButtonClicked(idx));
 
-    return `<input type='checkbox' class='completed_${this.is_done}' value="${this.name}">${this.name} ${this.description}<br>`;
+    // return `<input type='checkbox' class='completed_${this.is_done}' value="${this.name}">${this.name} ${this.description}<br>`;
   }
 }
