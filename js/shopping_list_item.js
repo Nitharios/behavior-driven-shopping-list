@@ -19,15 +19,17 @@ class ShoppingListItem {
 
   render() {
     let div = document.createElement('div');
-    let item = `{${this.name}, ${this.description}}`;
+    div.innerHTML += this.name + ' ' + this.description;
     let checkbox = document.createElement('input');
     checkbox.type = "checkbox";
-    checkbox.value = `${this.name}`;
-    // checkbox.addEventListener("onchange", function() {
-    //   changeCheckedStatus(shoppingList.items.indexOf(item), checkbox);
-    // });
+    checkbox.value = this.name;
     div.appendChild(checkbox);
-    div.innerHTML += `${this.name}` + ' ' + `${this.description}`;
+
+    let index = shoppingList.items.findIndex(obj => obj.name === this.name);
+
+    checkbox.addEventListener("change", function() {
+      changeCheckedStatus(index, checkbox);
+    });
     return div;
 
     // let checkboxValue = document.getElementsByClassName("").value;

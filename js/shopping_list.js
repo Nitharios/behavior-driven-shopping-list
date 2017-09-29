@@ -25,8 +25,6 @@ class ShoppingList {
     let items = this.items;
 
     for (let i = 0; i < items.length; i++) {
-      console.log(items[i]);
-      console.log(list);
       list.appendChild(items[i].render());
     }
 

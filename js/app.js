@@ -14,16 +14,18 @@ function add_to_shopping_list() {
   let description = descriptionInput.value;
   
   let new_shopping_list_item = new ShoppingListItem(name, description);
-  
+  console.log(new_shopping_list_item);
   shoppingList.addItem(new_shopping_list_item);
   content.innerHTML = "";
   content.appendChild(shoppingList.render());
-  // content.innerHTML = shoppingList.render();
 }
 
 function changeCheckedStatus(idx, checkbox) {
-  if (checkbox.checked) shoppingList[idx].check();
-  else shoppingList[idx].uncheck();
+  console.log(idx);
+  if (checkbox.checked) shoppingList.items[idx].check();
+  else shoppingList.items[idx].uncheck();
+
+  console.log(shoppingList.items[idx].is_done);
 }
 
 function removeItemButtonClicked(idx) {
