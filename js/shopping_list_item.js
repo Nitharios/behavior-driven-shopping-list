@@ -18,18 +18,26 @@ class ShoppingListItem {
   }
 
   render() {
+    let index = shoppingList.items.findIndex(obj => obj.name === this.name);
     let div = document.createElement('div');
-    div.innerHTML += this.name + ' ' + this.description;
     let checkbox = document.createElement('input');
+    let button = document.createElement('button');
+
+    div.innerHTML += this.name + ' ' + this.description;
     checkbox.type = "checkbox";
     checkbox.value = this.name;
-    div.appendChild(checkbox);
-
-    let index = shoppingList.items.findIndex(obj => obj.name === this.name);
+    button.innerHTML = 'x';
 
     checkbox.addEventListener("change", function() {
       changeCheckedStatus(index, checkbox);
     });
+    button.addEventListener("click", function() {
+      removeItemButtonClicked(index);
+    });
+    
+    div.appendChild(checkbox);
+    div.appendChild(button);
+
     return div;
 
     // let checkboxValue = document.getElementsByClassName("").value;

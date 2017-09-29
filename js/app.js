@@ -29,6 +29,7 @@ function changeCheckedStatus(idx, checkbox) {
 }
 
 function removeItemButtonClicked(idx) {
-  shoppingList.items[idx].removeItem();
-  content.innerHTML = shoppingList.render();
+  console.log(shoppingList.items[idx]);
+  shoppingList.items[idx].removeItem(shoppingList.items[idx]);
+  content.appendChild(shoppingList.render());
 }
