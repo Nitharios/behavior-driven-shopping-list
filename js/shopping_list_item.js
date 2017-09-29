@@ -18,15 +18,17 @@ class ShoppingListItem {
   }
 
   render() {
+    let div = document.createElement('div');
     let item = `{${this.name}, ${this.description}}`;
     let checkbox = document.createElement('input');
     checkbox.type = "checkbox";
     checkbox.value = `${this.name}`;
-    checkbox.innerHTML = `${this.name}` + ' ' + `${this.description}`;
-    checkbox.addEventListener("onchange", function() {
-      changeCheckedStatus(shoppingList.items.indexOf(item), checkbox);
-    });
-    return checkbox;
+    // checkbox.addEventListener("onchange", function() {
+    //   changeCheckedStatus(shoppingList.items.indexOf(item), checkbox);
+    // });
+    div.appendChild(checkbox);
+    div.innerHTML += `${this.name}` + ' ' + `${this.description}`;
+    return div;
 
     // let checkboxValue = document.getElementsByClassName("").value;
     // checkboxValue.addEventListener("onchange", changeCheckedStatus(idx, checkbox));
