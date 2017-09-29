@@ -14,14 +14,14 @@ function add_to_shopping_list() {
   let description = descriptionInput.value;
   
   let new_shopping_list_item = new ShoppingListItem(name, description);
-  console.log(new_shopping_list_item);
   shoppingList.addItem(new_shopping_list_item);
   content.innerHTML = "";
   content.appendChild(shoppingList.render());
+
+  console.log(shoppingList.items);
 }
 
 function changeCheckedStatus(idx, checkbox) {
-  console.log(idx);
   if (checkbox.checked) shoppingList.items[idx].check();
   else shoppingList.items[idx].uncheck();
 
@@ -29,7 +29,11 @@ function changeCheckedStatus(idx, checkbox) {
 }
 
 function removeItemButtonClicked(idx) {
-  console.log(shoppingList.items[idx]);
-  shoppingList.items[idx].removeItem(shoppingList.items[idx]);
+  let item = shoppingList.items[idx];
+
+  shoppingList.removeItem(item);
+  content.innerHTML = "";
   content.appendChild(shoppingList.render());
+
+  console.log(shoppingList.items);
 }
