@@ -16,6 +16,7 @@ function add_to_shopping_list() {
   let new_shopping_list_item = new ShoppingListItem(name, description);
   
   shoppingList.addItem(new_shopping_list_item);
+  content.innerHTML = "";
   content.appendChild(shoppingList.render());
   // content.innerHTML = shoppingList.render();
 }
