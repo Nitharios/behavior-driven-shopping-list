@@ -4,6 +4,8 @@ console.log(sanity);
 
 const content = document.getElementById("content");
 const shoppingList = new ShoppingList();
+content.innerHTML = shoppingList.render();
+
 
 function add_to_shopping_list() {
   let nameInput = document.getElementById("name");
