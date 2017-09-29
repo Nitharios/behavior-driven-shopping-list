@@ -16,17 +16,17 @@ function add_to_shopping_list() {
   let new_shopping_list_item = new ShoppingListItem(name, description);
   
   shoppingList.addItem(new_shopping_list_item);
-  shoppingList.render();
+  content.innerHTML = shoppingList.render();
 }
 
 function changeCheckedStatus(idx, checkbox) {
   if (checkbox.checked) shoppingList[idx].check();
   else shoppingList[idx].uncheck();
 
-  shoppingList.render();
+  content.innerHTML = shoppingList.render();
 }
 
 function removeItemButtonClicked(idx) {
   shoppingList.items[idx].removeItem();
-  shoppingList.render();
+  content.innerHTML = shoppingList.render();
 }

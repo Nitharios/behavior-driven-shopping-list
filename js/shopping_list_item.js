@@ -18,11 +18,11 @@ class ShoppingListItem {
   }
 
   render() {
-    let checkboxValue = document.getElementById('').value;
-    checkboxValue.addEventListener("onchange", changeCheckedStatus(idx, checkbox));
-    let button = document.createElement('button');
-    button.value = 'x';
-    button.addEventListener("click", removeItemButtonClicked(idx));
+    // let checkboxValue = document.getElementById('').value;
+    // checkboxValue.addEventListener("onchange", changeCheckedStatus(idx, checkbox));
+    // let button = document.createElement('button');
+    // button.value = 'x';
+    // button.addEventListener("click", removeItemButtonClicked(idx));
 
     return `<li class='completed_${this.is_done}'><span>${this.name}</span> <span>${this.description}</span></li>`;
   }
