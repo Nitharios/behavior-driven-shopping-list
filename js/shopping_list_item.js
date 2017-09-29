@@ -18,12 +18,17 @@ class ShoppingListItem {
   }
 
   render() {
-    // let checkboxValue = document.getElementById('').value;
+    // let item = document.createElement('input');
+    // item.type = "checkbox";
+    // item.value = `${this.name}` + ' ' + `${this.description}`;
+    // item.addEventListener("onchange", changeCheckedStatus(idx, item));
+
+    // let checkboxValue = document.getElementsByClassName("").value;
     // checkboxValue.addEventListener("onchange", changeCheckedStatus(idx, checkbox));
     // let button = document.createElement('button');
     // button.value = 'x';
     // button.addEventListener("click", removeItemButtonClicked(idx));
 
-    return `<li class='completed_${this.is_done}'><span>${this.name}</span> <span>${this.description}</span></li>`;
+    return `<input type='checkbox' class='completed_${this.is_done}' value="${this.name}">${this.name} ${this.description}<br>`;
   }
 }
